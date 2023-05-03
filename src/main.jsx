@@ -11,6 +11,7 @@ import Login from './Login/Login';
 import Registration from './Registration/Registration';
 import Blog from './Blog/Blog';
 import AuthProvider from './provider/AuthProvider';
+import ChefRecepie from './ChefRecepie/ChefRecepie';
 
 
 
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       path:"/blog",
       element:<Blog></Blog>
     },
+    {
+      path:"/chefRecepie/:id",
+      element:<ChefRecepie></ChefRecepie>
+    }
     
 
   ]
