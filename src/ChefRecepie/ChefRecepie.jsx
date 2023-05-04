@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ChefRecepie = () => {
     const allData=useLoaderData();
@@ -10,6 +11,7 @@ const ChefRecepie = () => {
     // console.log(allData);
 
     const [viewDetails,setViewDetails]=useState({});
+    const [favourite,setFavourite]=useState(false);
 
     useEffect(()=>{
         const singleRecepie=allData.find((data) => data.id == id);
@@ -23,14 +25,15 @@ const ChefRecepie = () => {
     //   console.log(recipes[0].recipe_id);
     
     const handleAddNewTodo=()=>{
-        toast("new to do is added");
+        toast("my favourite");
+        setFavourite(true);
     }
 
      return (
         <div>
 
             <div className='text-center'>
-                <img src={viewDetails?.image} alt="" />
+                <img src={viewDetails?.image}  alt="" />
                
                 <h2 className='text-4xl font-bold'>{viewDetails?.name}</h2>
                 <p>Bio: {viewDetails?.bio}</p>
@@ -63,7 +66,7 @@ const ChefRecepie = () => {
             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400"><span className='font-bold'>Ingredients:</span> {recepie.ingredients}</p>
             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">< span className='font-bold'>Rating: </span>{recepie.rating}</p>
            <button onClick={handleAddNewTodo} className='bg-blue-700 rounded-sm '>Favourite</button>
-           <ToastContainer/>
+                 <ToastContainer/>
             </div>
             ))
           }
