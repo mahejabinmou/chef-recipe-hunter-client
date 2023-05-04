@@ -65,7 +65,8 @@ const Login = () => {
                 </button>
                 <p className="p-2">
                   <small className="text-info">
-                    are you new? register here..
+                   
+                    <Link to="/registration">are you new? register here..</Link>
                   </small>
                 </p>
               </form>

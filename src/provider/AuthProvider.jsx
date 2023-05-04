@@ -8,6 +8,7 @@ import {
   onAuthStateChanged,
   signOut,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 // import app from "../firebase/firebase.config";
 import { useState } from "react";
@@ -32,6 +33,16 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+  // const updateUserData=(name,photoUrl,currentUser)=>{
+  //   // return updateProfile(currentUser,{
+  //   //   displayName:name,photoURL:photoUrl
+  //   // })
+    
+  // }
+  // }
+  const updateUserProfile = profile => {
+    return updateProfile(auth.currentUser, profile)
+  }
 
   const logOut = () => {
     setLoading(true);
@@ -48,21 +59,22 @@ const AuthProvider = ({ children }) => {
     }
   },[])
 
-  useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, (loggedInUser) => {
-      setUser(loggedInUser);
-    });
-    return () => {
-      unSubscribe();
-    };
-  }, []);
+  // useEffect(() => {
+  //   const unSubscribe = onAuthStateChanged(auth, (loggedInUser) => {
+  //     setUser(loggedInUser);
+  //   });
+  //   return () => {
+  //     return unSubscribe();
+  //   };
+  // }, []);
 
   const authInfo = { 
     loading,
     registerUser, 
     user, 
     logOut, 
-    loginUser 
+    loginUser,
+    updateUserProfile 
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
@@ -78,27 +90,3 @@ export default AuthProvider;
 
 
 
-// import React, { createContext } from 'react';
-// import {
-//     getAuth,
-//     createUserWithEmailAndPassword,
-//     onAuthStateChanged,
-//     signOut,
-//     signInWithEmailAndPassword,
-//   } from "firebase/auth";
-// import { app } from '../firebase/firebase.config';
-
-
-// export const AuthContext=createContext(null);
-// const auth = getAuth(app);
-
-// const AuthProvider = ({children}) => {
-    
-//     const authInfo = { registerUser, user, logOut, loginUser };
-//     return (
-//         <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
- 
-//     );
-// };
-
-// export default AuthProvider;

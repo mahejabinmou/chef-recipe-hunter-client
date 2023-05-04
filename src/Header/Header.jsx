@@ -34,7 +34,8 @@ const Header = () => {
         </div>
         <div className="navbar-end">
           {
-            user && <h2>Profile pic</h2>
+            user ? <img className='w-[50px] h-[50px] rounded-[50%]' src={user.photoURL} alt="" />:
+            <Link to="/login"><button>Login</button></Link>
           }
         </div>
       </div>
