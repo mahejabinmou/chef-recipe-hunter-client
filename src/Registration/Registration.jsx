@@ -10,7 +10,9 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [photoURL,setPhotoURl] =useState("");
   const [error, setError] = useState("");
+
 
   const handleRegistration = (event) => {
     event.preventDefault();
@@ -18,6 +20,7 @@ const Register = () => {
       setError("password not valid need 6 char ");
       return;
     }
+    console.log(name,email,photoURL,password);
     if ((name, email, password)) {
       registerUser(email, password)
         .then((result) => {
@@ -36,7 +39,7 @@ const Register = () => {
               <form action="" className="flex-col items-center">
      <div>
           <input 
-          onChange={(e) => setName(e.target.value)} className="email p-3 m-2 border"
+          onChange={(e) => setName(e.target.value)} className="name p-3 m-2 border"
           type="text" placeholder="enter your Name" required />
     </div>
     <div>
@@ -52,6 +55,11 @@ const Register = () => {
                     type="text"
                     placeholder="type your password"
                   />
+                  <div>
+          <input 
+          onChange={(e) => setPhotoURl(e.target.value)} className="photoURL p-3 m-2 border"
+          type="text" placeholder="enter your photoURL" required />
+    </div>
                   {/* <input
                     className="password p-3 m-2"
                     type="password"

@@ -34,15 +34,7 @@ const Login = () => {
       <div className="container text-center">
         
               <form action="" className="flex-col items-center">
-                <div>
-                <input
                 
-                onChange={(e) => setName(e.target.value)}
-                className="name p-3 m-2 border "
-                type="text"
-                placeholder="enter your name"
-              />
-                </div>
                 <div>
                 <input
                 

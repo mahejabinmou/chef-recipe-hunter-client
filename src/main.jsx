@@ -12,6 +12,7 @@ import Registration from './Registration/Registration';
 import Blog from './Blog/Blog';
 import AuthProvider from './provider/AuthProvider';
 import ChefRecepie from './ChefRecepie/ChefRecepie';
+import ErrorPage from './ErrorPage/ErroePage';
 
 
 
@@ -20,6 +21,8 @@ const router = createBrowserRouter([
   {
     path:"/",
    element:<Main></Main>,
+   errorElement:<ErrorPage></ErrorPage>,
+
    children:[
     {
       path:"/",
@@ -39,7 +42,10 @@ const router = createBrowserRouter([
     },
     {
       path:"/chefRecepie/:id",
-      element:<ChefRecepie></ChefRecepie>
+      element:<ChefRecepie></ChefRecepie>,
+      loader:({params})=>
+      fetch(`https://food-server-mahejabinmou.vercel.app/allData`)
+      
     }
     
 
