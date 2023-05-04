@@ -26,7 +26,7 @@ const ChefRecepie = () => {
     
     const handleAddNewTodo=()=>{
         toast("my favourite");
-        setFavourite(true);
+         setFavourite(!false);
     }
 
      return (
@@ -65,8 +65,9 @@ const ChefRecepie = () => {
             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400"><span className='font-bold'>CookingMethod:</span> {recepie.cookingMethod}</p>
             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400"><span className='font-bold'>Ingredients:</span> {recepie.ingredients}</p>
             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">< span className='font-bold'>Rating: </span>{recepie.rating}</p>
-           <button onClick={handleAddNewTodo} className='bg-blue-700 rounded-sm '>Favourite</button>
-                 <ToastContainer/>
+           {favourite?<button disabled onClick={handleAddNewTodo} className='bg-blue-700 rounded-sm '>Favourite</button>
+           :<button  onClick={handleAddNewTodo} className='bg-blue-700 rounded-sm '>Favourite</button>
+        }      <ToastContainer/>
             </div>
             ))
           }

@@ -1,9 +1,14 @@
 import React from 'react';
+import Pdf from "react-to-pdf";
+import ReactDOM from "react-dom";
 
+
+const ref = React.createRef();
 const Blog = () => {
+    // const ref = React.createRef();
     
     return (
-        <div className='text-center'>
+        <div className='text-center ' ref={ref}>
             <h2 className='text-center text-4xl'>Question and answer</h2>
             <div>
             <h4 className='text-center text-2xl'>Differences between uncontrolled and controlled components.</h4>
@@ -33,7 +38,11 @@ const Blog = () => {
                 </p>
             </div>
 
-            <button className='text-2xl bg-indigo-400 rounded'>Download</button>
+            {/* <button className='text-2xl bg-indigo-400 rounded'>Download</button> */}
+            
+    <Pdf targetRef={ref} filename="code-example.pdf">
+        {({ toPdf }) => <button onClick={toPdf} className='text-2xl bg-indigo-400 rounded'>Download</button>}
+      </Pdf>
        
         
        </div>
