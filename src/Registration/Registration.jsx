@@ -3,6 +3,7 @@
 import SocialLoginBtn from "../SocialLoginBtn/SocialLoginBtn";
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const { registerUser } = useContext(AuthContext);
@@ -30,6 +31,7 @@ const Register = () => {
           console.log(err.message);
         });
     }
+    
   };
   return (
     <div>

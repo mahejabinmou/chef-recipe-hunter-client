@@ -5,9 +5,13 @@ import React, { useState } from "react";
 
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 const Login = () => {
   const { loginUser } = useContext(AuthContext);
+  const navigate=useNavigate();
+  const location=useLocation();
+  console.log("login page location",location);
+  const from=location.state?.from?.pathname || "/";
   // const location = useLocation();
   // const history = useHistory();
   // let navigate = useNavigate();
@@ -22,6 +26,7 @@ const Login = () => {
       loginUser(email, password)
         .then((result) => {
           console.log(result.user);
+          navigate(from,{replace:true});
           // navigate("/");
         })
         .catch((error) => {

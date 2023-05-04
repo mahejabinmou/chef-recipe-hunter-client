@@ -13,6 +13,7 @@ import Blog from './Blog/Blog';
 import AuthProvider from './provider/AuthProvider';
 import ChefRecepie from './ChefRecepie/ChefRecepie';
 import ErrorPage from './ErrorPage/ErroePage';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 
 
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
     },
     {
       path:"/chefRecepie/:id",
-      element:<ChefRecepie></ChefRecepie>,
+      element:<PrivateRoute><ChefRecepie></ChefRecepie></PrivateRoute>,
       loader:({params})=>
       fetch(`https://food-server-mahejabinmou.vercel.app/allData`)
       
