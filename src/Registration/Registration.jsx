@@ -6,7 +6,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 
 const Register = () => {
-  const { registerUser } = useContext(AuthContext);
+  const { registerUser} = useContext(AuthContext);
 
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -17,14 +17,20 @@ const Register = () => {
 
   const handleRegistration = (event) => {
     event.preventDefault();
-    if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(password)) {
-      setError("password not valid need 6 char ");
-      return;
+    // if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(password)) {
+    //   setError("password not valid need 6 char ");
+    //   return;
+    // }
+    if(password.length<6){
+        setError("please add ateast 6 charecter");
+        return;
     }
     console.log(name,email,photoURL,password);
     if ((name, email, password)) {
+
       registerUser(email, password)
         .then((result) => {
+            
           console.log(result.user);
         })
         .catch((err) => {

@@ -4,7 +4,7 @@ import ActiveLink from '../ActiveLink/ActiveLink';
 import { AuthContext } from '../provider/AuthProvider';
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user,updateUserData } = useContext(AuthContext);
   return (
     <nav className='w-full mx-auto md-px-4 container'>
 

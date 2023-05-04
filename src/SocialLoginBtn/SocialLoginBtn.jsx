@@ -12,6 +12,7 @@ const Login = () => {
   // const location = useLocation();
   // const history = useHistory();
   // let navigate = useNavigate();
+//   navigate
   
 
   const [email, setEmail] = useState("");
