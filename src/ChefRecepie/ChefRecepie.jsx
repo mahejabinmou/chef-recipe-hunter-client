@@ -57,7 +57,7 @@ const ChefRecepie = () => {
 {
           recipes&&  recipes.map((recepie)=>(
                 
-         <div key={recepie.recipe_id} className="max-w-sm p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+         <div key={recepie.recipe_id} className="max-w-sm  mb-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             
             <img src={recepie.recipeImage} className='w-[300px] h-[300px] mx-auto' alt="" />
             <div className='text-center'>

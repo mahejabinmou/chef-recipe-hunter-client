@@ -41,7 +41,7 @@ const Blog = () => {
             {/* <button className='text-2xl bg-indigo-400 rounded'>Download</button> */}
             
     <Pdf targetRef={ref} filename="code-example.pdf">
-        {({ toPdf }) => <button onClick={toPdf} className='text-2xl bg-indigo-400 rounded'>Download</button>}
+        {({ toPdf }) => <button onClick={toPdf} className='text-2xl bg-indigo-400 rounded m-8'>Download</button>}
       </Pdf>
        
         
