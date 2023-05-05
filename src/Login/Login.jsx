@@ -31,6 +31,58 @@ const Login = () => {
     const handleLogin = (event) => {
         event.preventDefault();
 
+        
+
+        // signInWithPopup(auth, googleProvider)
+        //     .then(result => {
+        //         const user = result.user;
+        //         console.log(user);
+        //     })
+        //     .catch(error => {
+
+        //         console.log('error', error.message)
+        //     })
+
+        
+
+         
+            // signInWithPopup(auth, githubProvider)
+            //     .then(result => {
+            //          const loggedUser = user.result;
+            //         console.log(loggedUser);
+            //         setUser(loggedUser);
+            //     })
+
+            //     .catch(error => {
+            //         console.log(error);
+            //     })
+
+                
+        
+
+
+        // const handlSignOut = () => {
+        //     signOut(auth)
+        //         .then(result => setUser(null))
+        //         .catch(error => { console.log(error) })
+        // }
+
+
+        if ((email, password)) {
+            loginUser(email, password)
+                .then((result) => {
+                    console.log(result.user);
+                    navigate(from, { replace: true });
+                     navigate("/");
+              })
+                .catch((error) => {
+                    console.log(error.message);
+                });
+        }
+    };
+
+
+    const handleSignInGoogle=()=>{
         signInWithPopup(auth, googleProvider)
             .then(result => {
                 const user = result.user;
@@ -40,9 +92,11 @@ const Login = () => {
 
                 console.log('error', error.message)
             })
+    }
 
-         
-            signInWithPopup(auth, githubProvider)
+
+    const handleSignInGit=()=>{
+        signInWithPopup(auth, githubProvider)
                 .then(result => {
                      const loggedUser = user.result;
                     console.log(loggedUser);
@@ -52,30 +106,13 @@ const Login = () => {
                 .catch(error => {
                     console.log(error);
                 })
+    }
 
-                // const handleGitWithSignin
-        
-
-
-        const handlSignOut = () => {
-            signOut(auth)
-                .then(result => setUser(null))
-                .catch(error => { console.log(error) })
-        }
-
-
-        if ((email, password)) {
-            loginUser(email, password)
-                .then((result) => {
-                    console.log(result.user);
-                    navigate(from, { replace: true });
-                    // navigate("/");
-                })
-                .catch((error) => {
-                    console.log(error.message);
-                });
-        }
-    };
+    const handlSignOut = () => {
+        signOut(auth)
+            .then(result => setUser(null))
+            .catch(error => { console.log(error) })
+    }
 
 
     return (
@@ -118,11 +155,11 @@ const Login = () => {
 
 
                 <button
-                    onClick={handleLogin} className="btn btn-info w-75 p-2 mt-3">
+                    onClick={handleSignInGoogle} className="btn btn-info w-75 p-2 mt-3">
                     Google signIn
                 </button>
                 <br />
-                <button onClick={handleLogin}
+                <button onClick={handleSignInGit}
                     className="btn btn-info w-75 p-2 mt-3">
                     Github signIn
                 </button>
