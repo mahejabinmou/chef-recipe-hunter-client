@@ -1,5 +1,5 @@
 # b7a10-chef-recipe-hunter-client-side-mahejabinmou
-* site-link
+* https://assignment-10-client-sid-46979.firebaseapp.com/
 * This is a Food and recepie related website
 * anyone can search bests Food for them
 * through this anyone can know about bangladeshi food

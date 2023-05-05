@@ -4,7 +4,12 @@ import ActiveLink from '../ActiveLink/ActiveLink';
 import { AuthContext } from '../provider/AuthProvider';
 
 const Header = () => {
-  const { user,updateUserData } = useContext(AuthContext);
+  const { user,updateUserData,logOut } = useContext(AuthContext);
+  const handleLogOut=()=>{
+     logOut()
+     .then()
+     .catch(error=>console.log(error));
+  }
   return (
     <nav className='w-full mx-auto md-px-4 container'>
 
@@ -30,12 +35,16 @@ const Header = () => {
             <li><ActiveLink to="/blog" className='me-2 text-base'>Blog</ActiveLink></li>
             <li><ActiveLink to="/login" className='me-2 text-base'>Login</ActiveLink></li>
             <li><ActiveLink to="/registration" className='me-2 text-base'>Registration</ActiveLink></li>
+              {
+                user ? <button onClick={handleLogOut}>Logout</button>:
+                <Link to="/login"></Link>
+              }
           </ul>
         </div>
         <div className="navbar-end">
           {
             user ? <img className='w-[50px] h-[50px] rounded-[50%]' src={user.photoURL} alt="" />:
-            <Link to="/login"><button>Login</button></Link>
+            <Link to="/login"></Link>
           }
         </div>
       </div>
