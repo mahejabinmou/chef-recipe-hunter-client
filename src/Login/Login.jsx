@@ -31,41 +31,6 @@ const Login = () => {
     const handleLogin = (event) => {
         event.preventDefault();
 
-        
-
-        // signInWithPopup(auth, googleProvider)
-        //     .then(result => {
-        //         const user = result.user;
-        //         console.log(user);
-        //     })
-        //     .catch(error => {
-
-        //         console.log('error', error.message)
-        //     })
-
-        
-
-         
-            // signInWithPopup(auth, githubProvider)
-            //     .then(result => {
-            //          const loggedUser = user.result;
-            //         console.log(loggedUser);
-            //         setUser(loggedUser);
-            //     })
-
-            //     .catch(error => {
-            //         console.log(error);
-            //     })
-
-                
-        
-
-
-        // const handlSignOut = () => {
-        //     signOut(auth)
-        //         .then(result => setUser(null))
-        //         .catch(error => { console.log(error) })
-        // }
 
 
         if ((email, password)) {
@@ -151,7 +116,6 @@ const Login = () => {
                         </small>
                     </p>
                 </form>
-
 
 
                 <button

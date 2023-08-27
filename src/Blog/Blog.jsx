@@ -8,7 +8,7 @@ const Blog = () => {
     // const ref = React.createRef();
     
     return (
-        <div className='text-center ' ref={ref}>
+        <div className='text-center app' ref={ref}>
             <h2 className='text-center text-4xl'>Question and answer</h2>
             <div>
             <h4 className='text-center text-2xl'>Differences between uncontrolled and controlled components.</h4>
@@ -48,5 +48,7 @@ const Blog = () => {
        </div>
     );
 };
+
+
 
 export default Blog;

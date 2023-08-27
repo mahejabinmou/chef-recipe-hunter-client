@@ -2,7 +2,6 @@
 // import SocialLoginBtn from "../SocialLoginBtn/SocialLoginBtn";
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-import { getAuth, updateProfile } from "firebase/auth";
 import { Link } from "react-router-dom";
 
 const Register = () => {
@@ -91,7 +90,6 @@ const Register = () => {
                 >
                   Submit
                 </button>
-                
                 
                 <p className="p-2">
                   <small className="text-info">
